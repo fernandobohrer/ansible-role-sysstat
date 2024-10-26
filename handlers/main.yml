@@ -1,0 +1,7 @@
+---
+- name: Restart sysstat-collect.timer
+  ansible.builtin.systemd:
+    name: sysstat-collect.timer
+    state: restarted
+    enabled: true
+    daemon_reload: true

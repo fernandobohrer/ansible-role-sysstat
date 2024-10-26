@@ -1,0 +1,9 @@
+[Unit]
+Description=Run system activity accounting tool
+
+[Timer]
+AccuracySec={{ __sysstat_collect_timer_accuracy_sec }}
+OnCalendar={{ sysstat_collect_timer_on_calendar }}
+
+[Install]
+WantedBy=sysstat.service
