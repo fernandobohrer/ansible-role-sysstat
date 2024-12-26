@@ -1,2 +1,5 @@
 ---
 __sysstat_collect_timer_accuracy_sec: 1us
+__sysstat_collect_timer_systemd_dir: /etc/systemd/system/sysstat-collect.timer.d
+
+__sysstat_configuration_file: /etc/sysstat/sysstat

@@ -1,4 +1,6 @@
 ---
 apt_cache_valid_time: 3600
 
+sysstat_history: 28 # How long, in days, to keep log files
+
 sysstat_collect_timer_on_calendar: "*-*-* *:*:0/10" # Every 10 seconds

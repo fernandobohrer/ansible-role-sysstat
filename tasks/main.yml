@@ -7,17 +7,25 @@
     update_cache: true
     cache_valid_time: "{{ apt_cache_valid_time }}"
 
+- name: Ensure sysstat is configured
+  ansible.builtin.lineinfile:
+    path: "{{ __sysstat_configuration_file }}"
+    search_string: "HISTORY="
+    line: "HISTORY={{ sysstat_history }}"
+
+- name: Ensure systemd timer directory exists
+  ansible.builtin.file:
+    path: "{{ __sysstat_collect_timer_systemd_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "755"
+
 - name: Ensure sysstat-collect.timer is configured
   ansible.builtin.template:
     src: templates/sysstat-collect.timer.j2
-    dest: /etc/systemd/system/sysstat-collect.timer
+    dest: "{{ __sysstat_collect_timer_systemd_dir }}/{{ ansible_role_name }}.conf"
     owner: root
     group: root
     mode: "644"
-  notify: Restart sysstat-collect.timer
-
-- name: Ensure sysstat-summary.timer is enabled
-  ansible.builtin.systemd:
-    name: sysstat-summary.timer
-    enabled: true
-    daemon_reload: true
+  notify: Restart sysstat.service
