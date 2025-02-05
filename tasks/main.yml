@@ -1,21 +1,20 @@
 ---
-- name: Ensure sysstat is installed
+- name: Ensure role dependencies are installed
   ansible.builtin.apt:
-    name:
-      - sysstat
+    name: "{{ __sysstat__role_dependencies }}"
     state: present
     update_cache: true
     cache_valid_time: "{{ apt_cache_valid_time }}"
 
 - name: Ensure sysstat is configured
   ansible.builtin.lineinfile:
-    path: "{{ __sysstat_configuration_file }}"
+    path: "{{ __sysstat__configuration_file }}"
     search_string: "HISTORY="
-    line: "HISTORY={{ sysstat_history }}"
+    line: "HISTORY={{ sysstat__history }}"
 
 - name: Ensure systemd timer directory exists
   ansible.builtin.file:
-    path: "{{ __sysstat_collect_timer_systemd_dir }}"
+    path: "{{ __sysstat__collect_timer_systemd_dir }}"
     state: directory
     owner: root
     group: root
@@ -24,7 +23,7 @@
 - name: Ensure sysstat-collect.timer is configured
   ansible.builtin.template:
     src: templates/sysstat-collect.timer.j2
-    dest: "{{ __sysstat_collect_timer_systemd_dir }}/{{ ansible_role_name }}.conf"
+    dest: "{{ __sysstat__collect_timer_systemd_dir }}/{{ ansible_role_name }}.conf"
     owner: root
     group: root
     mode: "644"
