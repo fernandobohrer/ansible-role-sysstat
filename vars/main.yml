@@ -6,4 +6,4 @@ __sysstat__configuration_file: /etc/sysstat/sysstat
 
 __sysstat__collect_timer_systemd_dir: /etc/systemd/system/sysstat-collect.timer.d
 
-__sysstat__collect_timer_accuracy_sec: 1us
+__sysstat__collect_timer_accuracy: 1us
