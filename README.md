@@ -8,7 +8,7 @@ From sysstat's [GitHub repository][01]:
 
 *The sysstat package contains various utilities, common to many commercial Unixes, to monitor system performance and usage activity.*
 
-This role deploys [systat][01] and configures it to automatically collect and historize performance and activity data.
+This role deploys [sysstat][01] and configures it to automatically collect and historize performance and activity data.
 
 ## 📑 Role Variables
 
