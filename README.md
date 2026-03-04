@@ -6,7 +6,7 @@ An Ansible role that deploys and configures [sysstat][01] on Linux boxes.
 
 From sysstat's [GitHub repository][01]:
 
-*The sysstat package contains various utilities, common to many commercial Unixes, to monitor system performance and usage activity.*
+_The sysstat package contains various utilities, common to many commercial Unixes, to monitor system performance and usage activity._
 
 This role deploys [sysstat][01] and configures it to automatically collect and historize performance and activity data.
 
