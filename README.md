@@ -12,7 +12,7 @@ This role deploys [sysstat][01] and configures it to automatically collect and h
 
 ## 📑 Role Variables
 
-Check [here][02].
+Check [defaults/main.yml][02].
 
 ## 🧰 Dependencies
 
